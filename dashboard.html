@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard | Learning Path Generator</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="container">
+        <div class="panel panel--app">
+            <header class="header header--app">
+                <div>
+                    <h1>Learning Dashboard</h1>
+                    <p>Your profile, progress summary, and learning activities in one place.</p>
+                </div>
+                <div class="header-actions">
+                    <a href="index.html" class="btn btn--secondary">Back to Home</a>
+                    <a href="profile.html" class="btn btn--primary">Edit Profile</a>
+                </div>
+            </header>
+
+            <section class="dashboard-grid">
+                <div class="card dashboard-card">
+                    <div class="profile-header">
+                        <div class="avatar" id="dashboardAvatar">A</div>
+                        <div>
+                            <h2 id="dashboardName">Student</h2>
+                            <p id="dashboardRole">Learning Explorer</p>
+                        </div>
+                    </div>
+                    <div class="profile-info">
+                        <div><strong>Email</strong><span id="dashboardEmail">-</span></div>
+                        <div><strong>Interests</strong><span id="dashboardInterests">-</span></div>
+                    </div>
+                    <div class="profile-summary">
+                        <p>Continue your learning journey with a clear overview of your current track and upcoming milestones.</p>
+                    </div>
+                </div>
+
+                <div class="card dashboard-card">
+                    <h3>Weekly Focus</h3>
+                    <div class="stat-list">
+                        <div class="stat-item"><strong>3</strong><span>Courses planned</span></div>
+                        <div class="stat-item"><strong>5</strong><span>Videos watched</span></div>
+                        <div class="stat-item"><strong>2</strong><span>Projects completed</span></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="card">
+                <h3>Recommended Next Steps</h3>
+                <div class="skill-grid">
+                    <div class="skill-card">
+                        <h4>Python</h4>
+                        <p>Practice functions and mini-projects to strengthen your foundation.</p>
+                    </div>
+                    <div class="skill-card">
+                        <h4>Web Development</h4>
+                        <p>Plan your next responsive design project and add advanced styling.</p>
+                    </div>
+                    <div class="skill-card">
+                        <h4>Data Science</h4>
+                        <p>Explore real datasets and data visualization techniques.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

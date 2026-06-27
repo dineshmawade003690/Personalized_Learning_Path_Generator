@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Path Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div id="loginScreen" class="panel panel--login">
+            <!-- Login Background -->
+            <div class="login-bg">
+                <div class="login-bg__accent login-bg__accent-1"></div>
+                <div class="login-bg__accent login-bg__accent-2"></div>
+            </div>
+
+            <!-- Success Notification -->
+            <div id="successNotification" class="success-notification hidden">
+                <div class="success-icon">✓</div>
+                <p>Logging in...</p>
+            </div>
+
+            <!-- Login Form -->
+            <div id="loginFormContainer" class="card card--login login-card">
+                <div class="login-header">
+                    <div class="login-icon">📚</div>
+                    <h1>Welcome Back</h1>
+                    <p>Access your personalized learning path</p>
+                </div>
+                <form id="loginForm" class="form">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input id="username" type="text" placeholder="Enter your name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input id="password" type="password" placeholder="Enter a password" required>
+                    </div>
+
+                    <button type="submit" class="btn btn--primary btn--login">
+                        <span class="btn-text">Login</span>
+                        <span class="btn-loader hidden"></span>
+                    </button>
+                    <p class="form-note">Use any username and password to sign in.</p>
+                </form>
+                <div class="form-footer">
+                    <p><a href="#" id="forgotPasswordLink" class="form-link">Forgot Password?</a></p>
+                    <p class="form-footer__center">Don't have an account? <a href="#" id="signupLink" class="form-link">Create New Account</a></p>
+                </div>
+            </div>
+
+            <!-- Signup Form -->
+            <div id="signupFormContainer" class="card card--login login-card hidden">
+                <div class="login-header">
+                    <div class="login-icon">✨</div>
+                    <h1>Create Account</h1>
+                    <p>Start your learning journey today</p>
+                </div>
+                <form id="signupForm" class="form">
+                    <div class="form-group">
+                        <label for="signupName">Full Name</label>
+                        <input id="signupName" type="text" placeholder="Enter your full name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signupUsername">Username</label>
+                        <input id="signupUsername" type="text" placeholder="Choose a username" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signupEmail">Email</label>
+                        <input id="signupEmail" type="email" placeholder="Enter your email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signupPassword">Password</label>
+                        <input id="signupPassword" type="password" placeholder="Enter a password (min 6 characters)" required minlength="6">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signupConfirmPassword">Confirm Password</label>
+                        <input id="signupConfirmPassword" type="password" placeholder="Confirm your password" required minlength="6">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signupAvatar">Profile Photo (optional)</label>
+                        <div class="file-input-shell">
+                            <input id="signupAvatar" type="file" accept="image/*">
+                            <span id="signupAvatarStatus" class="file-input-status">No file chosen</span>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn--primary btn--login">Create Account</button>
+                </form>
+                <div class="form-footer">
+                    <p>Already have an account? <a href="#" id="backToLoginLink" class="form-link">Login here</a></p>
+                </div>
+            </div>
+
+            <!-- Forgot Password Form -->
+            <div id="forgotPasswordFormContainer" class="card card--login login-card hidden">
+                <div class="login-header">
+                    <div class="login-icon">🔐</div>
+                    <h1>Reset Password</h1>
+                    <p>We'll help you recover your account</p>
+                </div>
+                <form id="forgotPasswordForm" class="form">
+                    <div class="form-group">
+                        <label for="resetEmail">Email</label>
+                        <input id="resetEmail" type="email" placeholder="Enter your registered email" required>
+                    </div>
+
+                    <button type="submit" class="btn btn--primary btn--login">Send Reset Link</button>
+                    <p id="resetMessage" class="form-note" style="display: none; color: var(--color-secondary);"></p>
+                </form>
+                <div class="form-footer">
+                    <p><a href="#" id="backToLoginLink2" class="form-link">Back to Login</a></p>
+                </div>
+            </div>
+        </div>
+
+        <div id="appScreen" class="panel panel--app hidden">
+            <header class="header header--app">
+                <div>
+                    <h1>Learning Path Generator</h1>
+                    <p>Build your skills with guided study plans, video resources, and an AI/ML Assistant.</p>
+                </div>
+                <div class="header-actions">
+                    <a href="dashboard.html" class="btn btn--secondary">Dashboard</a>
+                    <a href="profile.html" class="btn btn--secondary">Profile</a>
+                    <button id="logoutButton" class="btn btn--secondary">Logout</button>
+                </div>
+            </header>
+
+            <section class="top-grid">
+                <aside class="sidebar-stack">
+                    <div class="card profile-card">
+                        <div class="profile-header">
+                            <div class="avatar" id="appAvatar">LP</div>
+                            <div>
+                                <h3 id="profileName">Your Name</h3>
+                                <p id="profileRole">Learning Explorer</p>
+                            </div>
+                        </div>
+                        <div class="profile-info">
+                            <div><strong>Email</strong><span id="profileEmail">-</span></div>
+                            <div><strong>Interests</strong><span id="profileInterests">-</span></div>
+                        </div>
+                    </div>
+                    <div class="skills-card card">
+                        <h3>Learning Path Skills</h3>
+                        <div id="skillCards" class="skill-grid"></div>
+                    </div>
+                </aside>
+            </section>
+
+            <section class="path-card card">
+                <div class="path-controls">
+                    <div class="form-group">
+                        <label for="skillSelect">Select Skill</label>
+                        <select id="skillSelect"></select>
+                    </div>
+                    <div class="form-group">
+                        <label for="levelSelect">Select Level</label>
+                        <select id="levelSelect"></select>
+                    </div>
+                    <button id="generateButton" class="btn btn--primary">Generate Path</button>
+                </div>
+                <div id="result" class="path-result"></div>
+            </section>
+
+            <section class="chat-card card">
+                <div class="chat-header">
+                    <div>
+                        <h3>AI/ML Assistant</h3>
+                        <p>Ask theory-based questions about Python, AI, machine learning, web development, and course topics.</p>
+                    </div>
+                </div>
+                <div id="chatWindow" class="chat-window"></div>
+                <div class="chat-input-row">
+                    <input id="chatInput" type="text" placeholder="Ask a theory question like 'What is Python?'">
+                    <button id="sendChatButton" class="btn btn--primary">Send</button>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

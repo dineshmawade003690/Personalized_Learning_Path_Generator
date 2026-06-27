@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile | Learning Path Generator</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="container">
+        <div class="panel panel--app">
+            <header class="header header--app">
+                <div>
+                    <h1>Edit Profile</h1>
+                    <p>Update your personal details and learning interests.</p>
+                </div>
+                <div class="header-actions">
+                    <a href="index.html" class="btn btn--secondary">Back to Home</a>
+                    <a href="dashboard.html" class="btn btn--primary">Open Dashboard</a>
+                </div>
+            </header>
+
+            <section class="card profile-page-card">
+                <form id="profileForm" class="form">
+                    <div class="form-group">
+                        <label for="profileUsername">Username</label>
+                        <input id="profileUsername" type="text" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="profileName">Full Name</label>
+                        <input id="profileName" type="text" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="profileEmail">Email</label>
+                        <input id="profileEmail" type="email" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="profileRole">Role</label>
+                        <input id="profileRole" type="text" placeholder="Learning Explorer" />
+                    </div>
+                    <div class="form-group">
+                        <label for="profileInterests">Interests</label>
+                        <input id="profileInterests" type="text" placeholder="Python, Web Development" />
+                    </div>
+                    <div class="form-group">
+                        <label for="profileAvatar">Profile Photo</label>
+                        <div class="file-input-shell">
+                            <input id="profileAvatar" type="file" accept="image/*" />
+                            <span id="profileAvatarStatus" class="file-input-status">No file chosen</span>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn--primary">Save Changes</button>
+                </form>
+            </section>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
